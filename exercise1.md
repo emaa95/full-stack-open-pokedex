@@ -1,0 +1,7 @@
+The language chosen for this exercise is python. It is a language that I know but that I don't use too much. According to Google searches, the most used linters are: Ruff, pytype, pylint, flak8, etc. Each has its advantages and disadvantages.
+Regarding tests, the most popular tool is Unittest (pyTest). It is included in the language and is one of the most popular.
+Hypothesis is another tool that uses pseudo-random scenarios and its strategies are developed in such a way that they try to stress our application as much as possible, seeing if it is capable of supporting them all.
+Schemathesis is a tremendously useful hypothesis-based tool for testing our APIs based on an OpenAPI definition.
+Regarding build in python, setuptools (for packaging) or poetry (for dependency management and packaging) is used.
+For CI there are the following alternatives to Jenkins and GitHub Actions: some cloud-based such as Travis, CircleCI, Azure Pipelines and Buildkite. And other self-hosted ones like Gitlab, TeamCity, Bamboo, Drone, GoCD.
+Deciding between a self-hosted and cloud-based environment for your CI/CD setup depends on several factors, and each option has its own advantages and considerations. Here are some key factors to consider when making this decision: Budget, Infrastructure Expertise, Security and Compliance, Scalability, Time to Market, Flexibility and Customization.
