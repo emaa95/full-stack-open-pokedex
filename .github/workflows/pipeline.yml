@@ -4,6 +4,10 @@ on:
     push:
             branches: 
                 - master
+    
+    pull_request:    
+      branches: [master]   
+      types: [opened, synchronize]
 jobs: 
     simple_deployment_pipeline:
         runs-on: windows-latest
@@ -30,4 +34,12 @@ jobs:
                 command: npm run test:e2e
                 start: npm run start-prod
                 wait-on: http://localhost:5000
-            
+
+    deploy_to_render:        
+      runs-on: windows-latest
+      needs: simple_deployment_pipeline
+      if: ${{ github.event_name == 'push' }}
+      steps:
+        - name: Trigger deployment
+          run: |
+            curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
