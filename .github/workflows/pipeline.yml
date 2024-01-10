@@ -49,11 +49,11 @@ jobs:
                 fetch-depth: '0'
             - name: Was there a skip command?
               run: |
-                if ($SKIP == true); then
-                  echo "#Skip found"
-                else
-                  echo "#Skip not found"
-                fi
+                if ($SKIP) {
+                Write-Output "#Skip found"
+                } else {
+                Write-Output "#Skip not found"
+                }
             - name: Update version number
               if: env.SKIP != 'true'
               uses: anothrNick/github-tag-action@1.67.0
