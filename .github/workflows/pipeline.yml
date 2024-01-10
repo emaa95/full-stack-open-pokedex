@@ -49,7 +49,7 @@ jobs:
                 fetch-depth: '0'
             - name: Was there a skip command?
               run: |
-                if ([[ $SKIP == true ]]); then
+                if ($SKIP == true); then
                   echo "#Skip found"
                 else
                   echo "#Skip not found"
