@@ -34,17 +34,6 @@ jobs:
                 command: npm run test:e2e
                 start: npm run start-prod
                 wait-on: http://localhost:5000
-    tag_release: 
-      name: Bump version and push tag
-      runs-on: windows-latest
-      needs: simple_deployment_pipeline
-      if: ${{ github.event_name == 'push' }}
-      steps: 
-        - uses: actions/checkout@master
-        - name: Bump version and push tag
-          uses: wiktorj/github-tag-action@master
-          env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
     deploy_to_render:        
       runs-on: windows-latest
